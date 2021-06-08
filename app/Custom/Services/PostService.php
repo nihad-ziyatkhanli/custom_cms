@@ -73,9 +73,8 @@ class PostService
         $data['is_default'] = 1;
         $data['user_id'] = auth()->user()->id;
 
+        DB::beginTransaction();
         try {
-            DB::beginTransaction();
-
             $post = Post::create($data);
 			$post->translations()->create($data);
 
@@ -90,9 +89,8 @@ class PostService
 
 	public static function update($post, $data)
 	{   
+        DB::beginTransaction();
         try {
-            DB::beginTransaction();
-
             if ($data['pt_delete'])
                 $post->translations()->where('locale', '=', $data['locale'])->where('is_default', '=', 0)->delete();
             else {

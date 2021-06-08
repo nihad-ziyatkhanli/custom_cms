@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
 use App\Custom\Traits\ConstructsPages;
 use App\Role;
 use App\MenuItem;
@@ -140,10 +141,14 @@ class RoleController extends Controller
 
         $validated = $request->validated();
 
+        DB::beginTransaction();
         try {
             $role->syncPermissions($validated);
             $role->users()->update(['expired' => true]);
+            
+            DB::commit();
         } catch (QueryException $e) {
+            DB::rollBack();
             return back()->with('fail', 'Error occured.');
         }
         

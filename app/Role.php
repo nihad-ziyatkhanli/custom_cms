@@ -76,9 +76,8 @@ class Role extends Model
                 })->isEmpty())
                     $insert_arr[] = ['role_id' => $this->id, 'menu_item_id' => $menu_item_id, 'permission_id' => $permission_id];
 
+        DB::beginTransaction();
         try {
-            DB::beginTransaction();
-
             if ($delete_arr)
                 RMP::where('role_id', '=', $this->id)->where(function ($query) use ($delete_arr) {
 
