@@ -1,1 +1,7 @@
-A custom cms i built in Laravel 6
+A custom cms i built in Laravel 6.
+
+## Installation
+Create .env file,
+Run composer install,
+Run php artisan key:generate,
+Comment certain line in AuthServiceProvider before running migration and seeding.
