@@ -20,7 +20,7 @@ class Helper
 		if (is_array($mixed))
 			foreach ($mixed as $key => $value)
 				$mixed[$key] = self::safe($value);
-		else if (is_string($mixed))
+		elseif (is_string($mixed))
 			return htmlspecialchars($mixed, ENT_QUOTES);
 
 		return $mixed;
