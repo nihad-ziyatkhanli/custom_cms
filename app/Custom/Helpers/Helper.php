@@ -27,21 +27,19 @@ class Helper
 	}
 
 	/* Me: returns substr of string till the position of $numth occurance of delimiter */
-	public static function parse( $str, $delimiter, $num )
+	public static function parse($str, $delimiter, $num)
 	{
 		$count = 0;
 		$offset = -1;
 
-		while( $count < $num )
-		{
-			if( ( $offset = strpos($str, $delimiter, $offset+1 ) ) !== false )
+		while ($count < $num) {
+			if(($offset = strpos($str, $delimiter, $offset+1)) !== false)
 				$count++;
 			else
 				return $str;
 		}
 
 		return substr($str, 0, $offset);
-
 	}
 
 	/* Me: checks if array contains only non-array elements */
