@@ -46,7 +46,7 @@ class MenuItem extends Model
     /* Me: Returns current MenuItem model based on URL */
     public static function current()
     {
-        $url=Helper::parse(\Request::getPathInfo(), '/', 3);
+        $url = Helper::parse(\Request::getPathInfo(), '/', 3);
 
         return self::where('url', '=', $url)->firstOrFail();
     }
