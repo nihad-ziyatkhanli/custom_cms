@@ -26,7 +26,7 @@ class Helper
 		return $mixed;
 	}
 
-	/* Me: returns substr of string till the position of $numth occurance of delimiter */
+	/* Me: returns substr of $str till the position of $numth occurance of $delimiter */
 	public static function parse($str, $delimiter, $num)
 	{
 		$count = 0;
