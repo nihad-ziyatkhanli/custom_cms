@@ -1,4 +1,4 @@
-A custom cms i built in Laravel 6.
+A custom cms I built in Laravel 6.
 
 ## Installation
 Create .env file (Run: copy .env.example .env) <br>
